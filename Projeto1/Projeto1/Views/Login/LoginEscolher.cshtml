@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "LoginEscolher";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>LoginEscolher</h2>
+
+<button type="button" class="btn btn-primary"  onclick='location.href="@Url.Action("LoginEmpresa","Login")"'>Logar como empresa</button>
+
+<button type="button" class="btn btn-danger" onclick='location.href="@Url.Action("LoginCliente","Login")"'>Logar como cliente</button>

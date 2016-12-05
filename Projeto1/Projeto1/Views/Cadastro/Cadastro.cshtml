@@ -1,0 +1,105 @@
+﻿@model Projeto1.Models.ModCliente
+
+@{
+    ViewBag.Title = "Cadastro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<br />
+<style>
+    fieldset {
+        border: 1px solid #ddd;
+        padding: 0 1.4em 1.4em 1.4em;
+        margin: 0 0 1.5em 0;
+    }
+
+    #cadastrar {
+        width: 375px;
+    }
+
+    #divCenter {
+        background-color: #DCDCDC;
+        width: 400px;
+        height: 370px;
+        left: 45%;
+        margin: -130px 0 0 -210px;
+        padding: 10px;
+        position: absolute;
+        top: 30%;
+        border: 2px solid black;
+        border-radius: 12px;
+    }
+</style>
+<form class="form-inline" action="@Url.Action("CadastroFinalizado", "Cadastro")">
+    <div id="divCenter">
+
+
+        <div class="control-group">
+            <label class="control-label">Nome: </label>
+            <div class="controls">
+                <input type="text" class="form-control" placeholder="Nome Sobrenome" name="nome">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">E-mail: </label>
+            <div class="controls">
+                <input type="text" class="form-control" placeholder="email@email.com" name="email">
+
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="control-group">
+                    <label class="control-label">Endereco: </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" placeholder="Rua: ABCD" name="endereco">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="control-group">
+                    <label class="control-label">Numero: </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" placeholder="157" name="numero">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Telefone: </label>
+            <div class="controls">
+                <input type="text" class="form-control" placeholder="11 44567345" name="telefone">
+
+            </div>
+
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputPassword">Senha: </label>
+            <div class="controls">
+                <input type="password" class="form-control" placeholder="senha123456" name="senha">
+
+            </div>
+
+        </div>
+        <br />
+
+
+
+
+        <button class="btn btn-primary" id="cadastrar" type="submit">Cadastrar</button>
+
+    </div>
+
+
+
+
+</form>

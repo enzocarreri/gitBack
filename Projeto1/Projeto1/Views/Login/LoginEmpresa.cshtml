@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<form class="form-horizontal" action="@Url.Action("logadoEmpresa","login")">
+    <div class="control-group">
+        <label class="control-label" for="inputEmail">Login</label>
+        <div class="controls">
+            <input type="text" class="form-control" placeholder="Login Empresa" name="login">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="inputPassword">Senha</label>
+        <div class="controls">
+            <input type="text" class="form-control" placeholder="senha123456" name="senha">
+
+        </div>
+       
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <br />
+          
+            <button class="btn btn-primary" type="submit">Acessar</button>
+        </div>
+    </div>
+</form>

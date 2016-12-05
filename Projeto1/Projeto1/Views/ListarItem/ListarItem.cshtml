@@ -1,0 +1,35 @@
+﻿
+
+@{
+    ViewBag.Title = "ListarItem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+
+<form class="form-inline" action="@Url.Action("RealizarPedido", "Pedido")">
+    <div class="form-group">
+        <input type="hidden" name="item" value="@ViewBag.Nome">
+        @foreach (Projeto1.Models.ModCliente item in Model)
+        {
+            <input type="hidden" name="cliente" value="@item.codigoCliente">
+        }
+
+        @Html.Action("ListarPrato", "ListarItem", new { codigoEmpresa = ViewBag.Nome })
+        @Html.Action("ListarPrincipal", "ListarItem", new { codigoEmpresa = ViewBag.Nome })
+        @Html.Action("ListarMistura", "ListarItem", new { codigoEmpresa = ViewBag.Nome })
+        @Html.Action("ListarGuarnicao", "ListarItem", new { codigoEmpresa = ViewBag.Nome })
+        @Html.Action("ListarBebida", "ListarItem", new { codigoEmpresa = ViewBag.Nome })
+        @Html.Action("ListarSobremesa", "ListarItem", new { codigoEmpresa = ViewBag.Nome })
+        <br/>
+        <button class="btn btn-warning">Pedir</button>
+        
+        <br />
+        <br />
+        
+        </div>
+    
+  </form>
+
+
+

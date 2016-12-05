@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "ListarPrato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   
+    
+}
+@Styles.Render("~/Content/Site.css")
+<h2>ListarPrato</h2>
+
+
+
+
+
+<fieldset data-role="controlgroup">
+    @foreach (Projeto1.Models.ModOfereceProduto item in Model)
+    {
+        <div class="col-md-8">
+            <div class="row">
+
+                <div class="chipPra">
+
+                    <img src="~/Content/Imagens/teste.jpg" alt="Person" width="96" height="96">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <b>Prato:</b> @item.produto.nomeProduto<br />
+                            </div>
+                            <div class="col-md-1">
+                                <div class="item">
+                                    <input type="checkbox" name="item" class="item-checkbox" value="@item.produto.codigoProduto" id="@item.produto.codigoProduto">
+                                    <label class="item-label" for="@item.produto.codigoProduto">
+                                        <span class="item-inner"></span>
+                                        <span class="item-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <b>Valor: </b> @item.valor <br />
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <br />
+        <br />
+
+
+    }
+    
+</fieldset>
+

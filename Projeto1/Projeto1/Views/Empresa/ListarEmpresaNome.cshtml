@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "ListarEmpresaNome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+</br>
+<form class="form-inline">
+    @foreach (Projeto1.Models.ModEmpresa item in Model)
+    {
+        <div class="col-md-12">
+            <div class="panel-heading" role="tab" value="@item.codigoEmpresa" id="headingOne">
+
+
+                <a id=@item.codigoEmpresa class="list-group-item collapsed" onclick="location.href='@Url.Action("ListarItem", "ListarItem", new { codigoEmpresa = @item.codigoEmpresa  })'" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <label>Nome:</label>@item.nomeApresentacao <br />
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Cidade:</label>@item.cidade.nome
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <label>Endereco:</label>@item.endereco
+                        </div>
+
+                    </div>
+                </a>
+
+
+
+
+            </div>
+
+        </div>
+
+    }
+</form>
+
+

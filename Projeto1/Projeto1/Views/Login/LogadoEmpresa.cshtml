@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Logado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Logado</h2>
+
+@foreach (Projeto1.Models.ModItensPedidos item in Model)
+{
+    <div class="col-md-12">
+        <div class="panel-heading" role="tab" id="headingOne">
+
+
+            <a id=@item.pedido.codigoPedido class="list-group-item collapsed">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>Pedido: </label>@item.pedido.codigoPedido <br />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Data venda: </label>@item.pedido.dataVenda <br />
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Status: </label>@item.pedido.status <br />
+                    </div>
+
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>Produto: </label>@item.produto.nomeProduto <br />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Nome cliente: </label>@item.pedido.cliente.nomeCliente <br />
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Codigo cliente: </label>@item.pedido.cliente.codigoCliente <br />
+                    </div>
+
+
+
+                    
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+}

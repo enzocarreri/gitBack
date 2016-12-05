@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewBag.Title = "ListarMistura";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListarMistura</h2>
+
+
+
+<fieldset data-role="controlgroup">
+    @foreach (Projeto1.Models.ModOfereceProduto item in Model)
+    {
+        <div class="col-md-6">
+            <div class="row">
+
+                <div class="chipPriMisGua">
+
+                    <img src="~/Content/Imagens/teste.jpg" alt="Person" width="96" height="96">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <b>Prato:</b> @item.produto.nomeProduto<br />
+                            </div>
+                            <div class="col-md-1">
+                                <div class="item">
+                                    <input type="checkbox" name="item" class="item-checkbox" value="@item.produto.codigoProduto" id="@item.produto.codigoProduto">
+                                    <label class="item-label" for="@item.produto.codigoProduto">
+                                        <span class="item-inner"></span>
+                                        <span class="item-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <b>Tipo: </b> @item.produto.tipoProduto.descricao <br />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <br /><br />
+
+
+
+    }
+
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @*<input type="checkbox" id="Pacote_i" name="Pacote" value="Pacote i" onClick="soma()">
+        <input type="checkbox" id="Pacote_ii" name="Pacote" value="Pacote ii" onClick="soma()">
+        <input type="checkbox" id="Pacote_iii" name="Pacote" value="Pacote iii" onClick="soma()">*@
+    @*<script>
+        function soma() {
+
+            var pacote = document.getElementsByName('Pacote');
+            for (var i = 0; i < pacote.length; i++) {
+                if (pacote[i].checked) {
+                    if (pacote[i].value == "Pacote i") {
+                        var Pacote_i = @item.produto.codigoProduto;
+                        alert(Pacote_i);
+                    } else if (pacote[i].value == "Pacote ii") {
+                        var Pacote_ii = "Pacote DOIS";
+                        alert(Pacote_ii);
+                    } else if (pacote[i].value == "Pacote iii") {
+                        var Pacote_iii = "Pacote TRÊS";
+                        alert(Pacote_iii);
+                    }
+                }
+            }
+
+        }
+        </script>*@
+
+    @*<input type="button" value="cancelar" onClick="Mistura()">
+        <script>*@
+    @*//function Prato() {
+
+            //    var misturas = document.getElementsByName('Pacote');
+
+            //    for (var i = 0; i < misturas.length; i++) {
+            //        if (misturas[i].checked) {
+            //            alert(misturas[i].value);
+            //        }
+
+            //    }
+
+            //} function Principal() {
+
+            //    var misturas = document.getElementsByName('Pacote');
+
+            //    for (var i = 0; i < misturas.length; i++) {
+            //        if (misturas[i].checked) {
+            //            alert(misturas[i].value);
+            //        }
+
+            //    }
+
+            //}
+            function Mistura() {
+
+                var misturas = document.getElementsByName('Pacote');
+
+                for (var i = 0; i < misturas.length; i++) {
+                    if (misturas[i].checked) {
+                        alert(misturas[i].value);
+
+                    }
+
+                }
+                location.href = '@Url.Action("RealizarPedido", "Pedido", new { codigo = "js-id" })'
+                  .replace("js-id", misturas.value);
+
+            }
+
+        </script>*@
+

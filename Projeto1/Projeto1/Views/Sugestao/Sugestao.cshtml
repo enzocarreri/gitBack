@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Sugestao";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sugestao</h2>
+
+
+<br />
+<style>
+    fieldset {
+        border: 1px solid #ddd;
+        padding: 0 1.4em 1.4em 1.4em;
+        margin: 0 0 1.5em 0;
+    }
+
+    #cadastrar {
+        width: 300px;
+    }
+
+    #sugestao {
+        width: 280px;
+        height: 100px;
+    }
+
+    #divCenter {
+        background-color: #DCDCDC;
+        width: 310px;
+        height: 310px;
+        left: 45%;
+        margin: -130px 0 0 -210px;
+        padding: 10px;
+        position: absolute;
+        top: 30%;
+        border: 2px solid black;
+        border-radius: 12px;
+    }
+</style>
+<form class="form-inline" action="@Url.Action("SugestaoFinalizada", "Sugestao")">
+    <div id="divCenter">
+
+
+        <div class="control-group">
+            <label class="control-label">Nome: </label>
+            <div class="controls">
+                <input type="text" class="form-control" placeholder="Nome Sobrenome" name="nome">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">E-mail: </label>
+            <div class="controls">
+                <input type="text" class="form-control" placeholder="email@email.com" name="email">
+
+            </div>
+
+        </div>
+
+
+
+        <div class="control-group">
+            <label class="control-label">Sugestão: </label>
+            <div class="controls">
+                <input type="text" id="sugestao" size="20" class="form-control" placeholder="Deixe sua sugestão aqui (; " name="sugestao">
+
+            </div>
+
+        </div>
+
+        <br />
+
+
+
+
+        <button class="btn btn-primary" id="cadastrar" type="submit">Cadastrar</button>
+
+    </div>
+
+
+
+
+</form>

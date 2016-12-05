@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "VisualAntigo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>VisualAntigo</h2>
+
+
+@foreach (Projeto1.Models.ModOfereceProduto item in Model)
+{
+    <div class="col-md-6">
+
+        <div class="panel-heading" role="tab" id="headingOne">
+
+
+            <a id=@item.produto.codigoProduto onclick="checar()" class="list-group-item collapsed">
+
+
+
+
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Nome: </label>@item.produto.nomeProduto <br />
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Tipo: </label>@item.produto.tipoProduto.descricao <br />
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="checkbox" name="item" value="@item.produto.codigoProduto">
+
+                    </div>
+                </div>
+
+
+            </a>
+
+        </div>
+
+    </div>
+
+}

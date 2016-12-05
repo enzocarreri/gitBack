@@ -1,0 +1,73 @@
+﻿
+@Styles.Render("~/Content/Site.css")
+<div>
+
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+
+        <div class="container-fluid">
+
+            <!-- Menu hamburger Inicio -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#exemplo-navbar-collapse" aria-expanded="false">
+
+                    <span class="sr-only">Navegacao</span>
+
+
+
+                </button>
+
+                <!-- Título Direita do menu-->
+                <a class="navbar-brand" href="@Url.Action("Index","Home")">PedeFacil<span class="glyphicon glyphicon-shopping-cart"></span></a>
+
+            </div>
+            <!-- Menu hamburger Fim -->
+
+            <div class="collapse navbar-collapse" id="exemplo-navbar-collapse">
+
+                <!-- Links Inicio -->
+                <ul class="nav navbar-nav navbar-left">
+
+                    <li><a href="@Url.Action("Sugestao", "Sugestao")">Sugestoes <span class="sr-only">(current)</span></a></li>
+                    <p class="navbar-text">Conheca-nos</p>
+
+                    <li><a href="@Url.Action("LoginCliente", "Login")">Login <span class="sr-only">(current)</span></a></li>
+                    <li><a href="@Url.Action("Cadastro", "Cadastro")">Cadastre-se <span class="sr-only">(current)</span></a></li>
+
+
+                </ul>
+                <!-- Links Fim -->
+                <!-- Caixa de Pesquisa Inicio -->
+                <div class="navbar-right">
+
+
+                    <!-- Formulario caixa pesquisa Inicio -->
+                    <form class="navbar-form" role="search" action="@Url.Action("ListarEmpresaNome", "Empresa")">
+
+                        <div class="input-group">
+
+                            <input type="text" class="form-control" placeholder="Busque o restaurante..." name="empresa">
+
+                            <!-- Display icone Lupa -->
+                            <div class="input-group-btn">
+                                <button class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+
+                            </div>
+
+
+                        </div>
+
+                    </form>
+                    <!-- Formulario caixa pesquisa Fim -->
+
+                </div>
+                <!-- Caixa de Pesquisa Fim -->
+
+            </div>
+        </div>
+
+    </div>
+    <br />
+    <br />
+
+</div>
