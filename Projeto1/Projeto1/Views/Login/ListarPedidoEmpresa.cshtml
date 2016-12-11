@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "ListarPedidoEmpresa";
+  
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+       
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color:#f2f2f2;
+    }
+
+    th {
+        background-color: #0094ff;
+        color: white;
+    }
+</style>
+
+    <table class="table">
+        <tr>
+            <th>Produto</th>
+            <th>Tipo de produto</th>
+
+        </tr>
+        @foreach (Projeto1.Models.ModItensPedidos item in Model)
+        {
+            <div class="col-md-6">
+                <tr>
+                    <div class="col-md-3">
+                        <div class="row">
+
+                            <td>
+
+                                <div class="col-md-3">
+
+                                    <label>@item.produto.nomeProduto</label> <br />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="col-md-3">
+
+                                    <label>@item.produto.tipoProduto.descricao</label> <br />
+                                </div>
+                            </td>
+                        </div>
+
+                    </div>
+                </tr>
+            </div>
+        }
+    </table>

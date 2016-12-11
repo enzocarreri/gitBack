@@ -440,7 +440,7 @@ namespace Projeto1.Models.MSSQL
             return oferece;
         }
 
-        internal List<ModCliente> LoginCliente(string login,string senha)
+        internal List<ModCliente> LoginCliente(string email,string senha)
         {
             // Instancia nossos objetos
             List<ModCliente> resultado = new List<ModCliente>();
@@ -460,7 +460,7 @@ namespace Projeto1.Models.MSSQL
                 String query = "";
                 // Nosso comando SQL
                 query = "select codigocliente from cliente " +
-                        "where login ='" + login + "' and senha='" + senha + "' ";
+                        "where email ='" + email + "' and senha='" + senha + "' ";
 
 
 

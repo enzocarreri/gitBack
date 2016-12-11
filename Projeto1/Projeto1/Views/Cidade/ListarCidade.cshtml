@@ -2,23 +2,25 @@
     ViewBag.Title = "ListarCidade";
 
 }
-<form class="form-inline" action="@Url.Action("ListarEmpresa","Empresa")">
-    
 
-    <div class="form-group">
-        <select name="cidade" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Escolha a cidade que deseja pedir">
-            <option value="">Escolha uma cidade...</option>
-            @foreach (Projeto1.Models.ModCidade itemCidade in Model)
+
+    <form class="form-inline" action="@Url.Action("ListarEmpresa","Empresa")">
+
+
+        <div class="form-group">
+            <select name="cidade" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Escolha a cidade que deseja pedir">
+                <option value="">Escolha uma cidade...</option>
+                @foreach (Projeto1.Models.ModCidade itemCidade in Model)
             {
-                <option value="@itemCidade.nome">@itemCidade.nome</option>
-            }
-        </select>
-    </div>
-    
-    
-    <button  class="btn btn-primary">Buscar</button>
+                    <option value="@itemCidade.nome">@itemCidade.nome</option>
+                }
+            </select>
+        </div>
 
 
-</form>
+        <button class="btn btn-primary">Buscar</button>
+
+
+    </form>
 
  

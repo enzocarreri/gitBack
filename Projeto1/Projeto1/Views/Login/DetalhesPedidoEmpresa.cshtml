@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "DetalhesPedidoEmpresa";
+    
+}
+
+
+<form class="form-inline">
+
+    @foreach (Projeto1.Models.ModItensPedidos item in Model)
+    {
+        <strong>
+           
+            @item.pedido.dataVenda
+            @item.pedido.enderecoEntrega
+            @item.pedido.numeroEntrega
+            
+        </strong>
+    }
+
+</form>
+
+
+

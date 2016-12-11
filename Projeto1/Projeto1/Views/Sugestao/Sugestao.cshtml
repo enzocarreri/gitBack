@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Sugestao</h2>
+
 
 
 <br />
@@ -16,23 +16,25 @@
     }
 
     #cadastrar {
-        width: 300px;
+        width: 285px;
     }
 
     #sugestao {
-        width: 280px;
+        width: 285px;
         height: 100px;
     }
-
+    #text{
+        width: 285px;
+    }
     #divCenter {
         background-color: #DCDCDC;
         width: 310px;
-        height: 310px;
-        left: 45%;
+        height: 320px;
+        left: 50%;
         margin: -130px 0 0 -210px;
         padding: 10px;
         position: absolute;
-        top: 30%;
+        top: 33%;
         border: 2px solid black;
         border-radius: 12px;
     }
@@ -44,14 +46,14 @@
         <div class="control-group">
             <label class="control-label">Nome: </label>
             <div class="controls">
-                <input type="text" class="form-control" placeholder="Nome Sobrenome" name="nome">
+                <input type="text" id="text" class="form-control" placeholder="Nome Sobrenome" name="nome">
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label">E-mail: </label>
             <div class="controls">
-                <input type="text" class="form-control" placeholder="email@email.com" name="email">
+                <input type="text" id="text" class="form-control" placeholder="email@email.com" name="email">
 
             </div>
 
@@ -62,8 +64,8 @@
         <div class="control-group">
             <label class="control-label">Sugestão: </label>
             <div class="controls">
-                <input type="text" id="sugestao" size="20" class="form-control" placeholder="Deixe sua sugestão aqui (; " name="sugestao">
-
+                
+                <textarea type="text" id="sugestao" cols="50" rows="10" class="form-control" placeholder="Deixe sua sugestão aqui (; "></textarea>
             </div>
 
         </div>

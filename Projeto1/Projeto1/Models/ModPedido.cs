@@ -11,9 +11,10 @@ namespace Projeto1.Models
 
         public double? valor { get; set; }
 
-        public int status { get; set; }
+        public string status { get; set; }
 
         public string enderecoEntrega { get; set; }
+        public string numeroEntrega { get; set; }
 
         public ModCliente cliente { get; set; }
 

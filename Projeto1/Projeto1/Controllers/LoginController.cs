@@ -22,23 +22,22 @@ namespace Projeto1.Controllers
         }
         public ActionResult AdmLogin()
         {
-            string login = Request.QueryString["login"];
+            string email = Request.QueryString["email"];
             string senha = Request.QueryString["senha"];
             string selecionado = Request.QueryString["item"];
             if(String.IsNullOrEmpty(selecionado))
             {
-                return RedirectToAction("logadoCliente", "Login", new { loginP = login, senhaP = senha});
+                return RedirectToAction("logadoCliente", "Login", new { loginP = email, senhaP = senha});
             }
             else
             {
-                return RedirectToAction("logadoEmpresa", "Login", new { loginP = login, senhaP = senha});
+                return RedirectToAction("logadoEmpresa", "Login", new { loginP = email, senhaP = senha});
             }
             return View();
         }
         public ActionResult LogadoCliente(string loginP,string senhaP)
         {
-            //string login = Request.QueryString["login"];
-            //string senha = Request.QueryString["senha"];
+            
             LoginDAO dao = new LoginDAO();
             ViewBag.login = loginP;
             ViewBag.senha = senhaP;
@@ -48,8 +47,7 @@ namespace Projeto1.Controllers
 
         public ActionResult LogadoEmpresa(string loginP, string senhaP)
         {
-            //string login = Request.QueryString["login"];
-            //string senha = Request.QueryString["senha"];
+           
             LoginDAO dao = new LoginDAO();
             ViewBag.login = loginP;
             ViewBag.senha = senhaP;
@@ -58,6 +56,43 @@ namespace Projeto1.Controllers
 
 
         }
-       
+        public ActionResult ListarPedidoEmpresa(string codigoPedido)
+        {
+            
+            LoginDAO dao = new LoginDAO();
+            
+            List<ModItensPedidos> ped = dao.ListarPedidoItemEmpresa(codigoPedido);
+            ViewBag.lala = codigoPedido;
+            return PartialView(ped);
+        }
+        public ActionResult DetalhesPedidoEmpresa(string codigoPedido)
+        {
+
+            LoginDAO dao = new LoginDAO();
+
+            List<ModItensPedidos> pede = dao.ListarPedidoItemEmpresa(codigoPedido);
+            ViewBag.lala = codigoPedido;
+            return PartialView(pede);
+        }
+        //public ActionResult CarregarStatus(String codigoPedido)
+        //{
+        //    StatusDAO dao = new StatusDAO();
+
+        //    List<ModPedido> ped = dao.ListarPedidoItemEmpresa(codigoPedido);
+
+        //    return PartialView(ped);
+        //}
+        //public ActionResult AlterarStatus()
+        //{
+        //    string status = Request.QueryString["status"];
+        //    string codigoPedido = Request.QueryString["codigoPedido"];
+        //    StatusDAO dao = new StatusDAO();
+
+        //    string ped = dao.NovoStatus(status, codigoPedido);
+        //    ViewBag.lala = ped;
+        //    return View();
+        //}
+
+
     }
 }

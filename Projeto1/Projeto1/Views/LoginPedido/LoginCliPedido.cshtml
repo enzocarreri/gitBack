@@ -5,29 +5,75 @@
 }
 
 
-<br />
-<form class="form-horizontal" action="@Url.Action("ListarItem", "ListarItem")">
-    <input type="hidden" name="item" value="@ViewBag.Nome">
-    <div class="control-group">
-        <label class="control-label" for="inputEmail">Login</label>
-        <div class="controls">
-            <input type="text" class="form-control" placeholder="Login Usuario" name="login">
+
+
+
+<style>
+    fieldset {
+        border: 1px solid #ddd;
+        padding: 0 1.4em 1.4em 1.4em;
+        margin: 0 0 1.5em 0;
+    }
+
+    #cadastrar {
+        width: 375px;
+    }
+
+    #endereco {
+        width: 230px;
+    }
+
+    #num {
+        width: 130px;
+    }
+
+    #outros {
+        width: 365px;
+    }
+
+    #divCenter {
+        background-color: #DCDCDC;
+        width: 400px;
+        height: 215px;
+        left: 45%;
+        margin: -130px 0 0 -210px;
+        padding: 10px;
+        position: absolute;
+        top: 33%;
+        border: 2px solid black;
+        border-radius: 12px;
+    }
+</style>
+
+<form class="form-inline" action="@Url.Action("ListarItem", "ListarItem")">
+
+    <div id="divCenter">
+        <input type="hidden" name="item" value="@ViewBag.Nome">
+        
+
+
+        <div class="control-group">
+            <label class="control-label" for="inputEmail">Email</label>
+            <div class="controls">
+                <input type="text" id="outros" class="form-control" placeholder="E-mail@e-mail.com" name="email">
+            </div>
         </div>
-    </div>
-    <div class="control-group">
-        <label class="control-label" for="inputPassword">Senha</label>
-        <div class="controls">
-            <input type="text" class="form-control" placeholder="senha123456" name="senha">
+        <div class="control-group">
+            <label class="control-label" for="inputPassword">Senha</label>
+            <div class="controls">
+                <input type="password" id="outros" class="form-control" placeholder="senha123456" name="senha">
+
+            </div>
 
         </div>
-
-    </div>
-    <div class="control-group">
-        <div class="controls">
-            <br />
+        <div class="control-group">
+            <div class="controls">
+                <br />
 
 
-            <button class="btn btn-default" type="submit">Acessar</button>
+                <button class="btn btn-primary" id="cadastrar" type="submit">Acessar</button>
+            </div>
         </div>
+        <a href="@Url.Action("Cadastro","Cadastro")"><p><strong>Clique aqui para cadastrar-se!!!</strong></p></a>
     </div>
 </form>

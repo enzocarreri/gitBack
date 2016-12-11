@@ -186,6 +186,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Controllers\SelecionarCidadeController.cs" />
+    <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\SugestaoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -212,6 +213,7 @@
     <Compile Include="Models\MSSQL\ItensDAO.cs" />
     <Compile Include="Models\MSSQL\LoginDAO.cs" />
     <Compile Include="Models\MSSQL\PedidoDAO.cs" />
+    <Compile Include="Models\MSSQL\StatusDAO.cs" />
     <Compile Include="Models\MSSQL\SugestaoDAO.cs" />
     <Compile Include="Models\Validacoes\ConvertReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -225,12 +227,15 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Imagens\card.jpg" />
+    <Content Include="Content\Imagens\fda.jpg" />
     <Content Include="Content\Imagens\fundocardapio.jpg" />
     <Content Include="Content\Imagens\cap.jpg" />
     <Content Include="Content\Imagens\cap2.JPG" />
     <Content Include="Content\Imagens\Fotolia_84805682_Subscription_Monthly_M.jpg" />
     <Content Include="Content\Imagens\risos2.png" />
     <Content Include="Content\Imagens\teste.jpg" />
+    <Content Include="Content\Imagens\slide_3.jpg" />
+    <Content Include="Content\Imagens\Vinho-e-queijo.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -318,6 +323,13 @@
     <Content Include="Views\Cadastro\Cadastro.cshtml" />
     <Content Include="Views\Sugestao\Sugestao.cshtml" />
     <Content Include="Views\Sugestao\SugestaoFinalizada.cshtml" />
+    <Content Include="Views\Login\ListarPedidoEmpresa.cshtml" />
+    <Content Include="Views\Status\CarregarStatus.cshtml" />
+    <Content Include="Views\Status\AlterarStatus.cshtml" />
+    <Content Include="Views\Pedido\ValorTotal.cshtml" />
+    <Content Include="Views\Login\DetalhesPedidoEmpresa.cshtml" />
+    <Content Include="Views\Login\CarregarStatus.cshtml" />
+    <Content Include="Views\Login\AlterarStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

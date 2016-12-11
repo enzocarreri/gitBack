@@ -18,7 +18,7 @@ namespace Projeto1.Controllers
             //{
             //    return RedirectToAction("Index", "Home");
             //}
-            string login = Request.QueryString["login"];
+            string email = Request.QueryString["email"];
             string senha = Request.QueryString["senha"];
             string codigoEmpresa = Request.QueryString["item"];
             ViewBag.Nome = codigoEmpresa;
@@ -26,7 +26,7 @@ namespace Projeto1.Controllers
             
             ItensDAO dao = new ItensDAO();
 
-            List<ModCliente> cliente = dao.LoginCliente(login,senha);
+            List<ModCliente> cliente = dao.LoginCliente(email,senha);
             ViewBag.CodigoCliente = cliente;
 
             return View(cliente);

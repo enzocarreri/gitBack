@@ -93,7 +93,10 @@ namespace Projeto1.Models.MSSQL
             return oferece;
         }
 
-
+        internal List<ModItensPedidos> ValorTotal(string mistura)
+        {
+            throw new NotImplementedException();
+        }
 
         internal List<ModItensPedidos> SugestaoBebida(string mistura)
         {
@@ -329,7 +332,7 @@ namespace Projeto1.Models.MSSQL
             return cliente;
         }
 
-        internal string FinalizarPedido(string pedido, string cliente, string endereco, string numero, string valor, string codBeb1, string valorBeb1, string codSobre1, string valorSobre1)
+        internal string FinalizarPedido(string pedido, string cliente, string endereco, string numero, string valor, string codBeb1, string valorBeb1, string codSobre1, string valorSobre1,string pagamento)
         {
             // Instancia nossos objetos
             List<ModPedido> itensPedido = new List<ModPedido>();
@@ -396,7 +399,7 @@ namespace Projeto1.Models.MSSQL
                 DateTime saveNow = DateTime.Now;
 
                 empresa = pedido.Substring(0, 2);
-                query1 = "insert into pedido(codclientepedido,codempresapedido,datavenda, enderecoentrega,numeroentrega,valor) values (  '" + Convert.ToInt32(cliente) + "', '" + Convert.ToInt32(empresa) + "', now(), '" + endereco + "', '" + numero + "', '" + valorfinal + "')";
+                query1 = "insert into pedido(codclientepedido,codempresapedido,datavenda, enderecoentrega,numeroentrega,valor,descricaopagamento,status) values (  '" + Convert.ToInt32(cliente) + "', '" + Convert.ToInt32(empresa) + "', now(), '" + endereco + "', '" + numero + "', '" + valorfinal + "','"+pagamento+"','"+"Em analise"+"')";
 
 
                 query2 = "select codigopedido from pedido order by codigopedido desc limit 1";

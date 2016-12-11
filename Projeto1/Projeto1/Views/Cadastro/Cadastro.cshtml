@@ -17,7 +17,15 @@
     #cadastrar {
         width: 375px;
     }
-
+    #endereco{
+        width: 230px;
+    }
+    #num{
+        width: 130px;
+    }
+    #outros{
+        width: 365px;
+    }
     #divCenter {
         background-color: #DCDCDC;
         width: 400px;
@@ -26,7 +34,7 @@
         margin: -130px 0 0 -210px;
         padding: 10px;
         position: absolute;
-        top: 30%;
+        top: 33%;
         border: 2px solid black;
         border-radius: 12px;
     }
@@ -38,35 +46,35 @@
         <div class="control-group">
             <label class="control-label">Nome: </label>
             <div class="controls">
-                <input type="text" class="form-control" placeholder="Nome Sobrenome" name="nome">
+                <input type="text" id="outros" class="form-control" placeholder="Nome Sobrenome" name="nome">
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label">E-mail: </label>
             <div class="controls">
-                <input type="text" class="form-control" placeholder="email@email.com" name="email">
+                <input type="text" id="outros" class="form-control" placeholder="email@email.com" name="email">
 
             </div>
 
         </div>
 
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="control-group">
                     <label class="control-label">Endereco: </label>
                     <div class="controls">
-                        <input type="text" class="form-control" placeholder="Rua: ABCD" name="endereco">
+                        <input id="endereco" type="text" class="form-control" placeholder="Rua: ABCD" name="endereco">
 
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <div class="control-group">
                     <label class="control-label">Numero: </label>
                     <div class="controls">
-                        <input type="text" class="form-control" placeholder="157" name="numero">
+                        <input type="text" id="num" class="form-control" placeholder="157" name="numero">
 
                     </div>
 
@@ -77,7 +85,7 @@
         <div class="control-group">
             <label class="control-label">Telefone: </label>
             <div class="controls">
-                <input type="text" class="form-control" placeholder="11 44567345" name="telefone">
+                <input type="text" id="outros" class="form-control" placeholder="11 44567345" name="telefone">
 
             </div>
 
@@ -85,7 +93,7 @@
         <div class="control-group">
             <label class="control-label" for="inputPassword">Senha: </label>
             <div class="controls">
-                <input type="password" class="form-control" placeholder="senha123456" name="senha">
+                <input type="password" id="outros" class="form-control" placeholder="senha123456" name="senha">
 
             </div>
 

@@ -13,7 +13,7 @@
             <div class="panel-heading" role="tab" value="@item.codigoEmpresa" id="headingOne">
 
 
-                <a id=@item.codigoEmpresa class="list-group-item collapsed" onclick="location.href='@Url.Action("ListarItem", "ListarItem", new { codigoEmpresa = @item.codigoEmpresa  })'" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                <a id=@item.codigoEmpresa class="list-group-item collapsed" onclick="location.href='@Url.Action("LoginCliPedido", "LoginPedido", new { codigoEmpresa = @item.codigoEmpresa  })'" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                     <div class="row">
                         <div class="col-md-9">
                             <label>Nome:</label>@item.nomeApresentacao <br />

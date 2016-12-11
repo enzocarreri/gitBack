@@ -79,6 +79,7 @@ namespace Projeto1.Controllers
             string valBeb1 = Request.QueryString["valorBeb1"];
             string codSobre1 = Request.QueryString["codSobre1"];
             string valorSobre1 = Request.QueryString["valorSobre1"];
+            string pagamento = Request.QueryString["payment_methods"];
             string pedido = null;
             string valor = null;
 
@@ -87,7 +88,7 @@ namespace Projeto1.Controllers
 
             PedidoDAO dao = new PedidoDAO();
                       
-            string ao = dao.FinalizarPedido(pedido, cliente, endereco, numero, valor,codBeb1,valBeb1,codSobre1,valorSobre1);
+            string ao = dao.FinalizarPedido(pedido, cliente, endereco, numero, valor,codBeb1,valBeb1,codSobre1,valorSobre1,pagamento);
 
 
             ViewBag.nome = selecionado;
@@ -98,6 +99,14 @@ namespace Projeto1.Controllers
             ViewBag.lala3 = codSobre1;
             ViewBag.lala4 = valorSobre1;
             return View();
+
+        }
+        public ActionResult ValorTotal(string mistura)
+        {
+            PedidoDAO dao = new PedidoDAO();
+
+            List<ModItensPedidos> sug = dao.ValorTotal(mistura);
+            return View(sug);
 
         }
 

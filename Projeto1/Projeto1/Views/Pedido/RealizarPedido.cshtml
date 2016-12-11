@@ -3,51 +3,285 @@
     ViewBag.Title = "RealizarPedido";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Pedido</h2>
-
+<style>
+#confirm {
+    background-color: #ffffff;
+     border-left: 8px solid #334b64;
+    border-right: 8px solid #334b64;
+    border-bottom: 8px solid #334b64;
+    border-top: 1px solid #334b64;
+    border-radius: 25px;
+    width:1100px;
+     box-shadow: 0 4px 12px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+    
+}
+#confirm:hover{
+    background-color: #ffffff;
+    border-left: 8px solid #334b64;
+    border-right: 8px solid #334b64;
+    border-bottom: 8px solid #334b64;
+    border-top: 1px solid #334b64;
+    border-radius: 25px;
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,0.2);
+}
+#titulo{
+    font-size:32px;
+    text-align:center;
+    font-family:'Comic Sans MS';
+}
+</style>
+<br />
+<br />
+<div class="info" id="confirm">
+    <p id="titulo"><strong> CONFIRMAÇÃO DE PEDIDO</strong></p>
+</div>
+<br />
 <form class="form-inline" action="@Url.Action("FinalizarPedido", "Pedido")">
     <div class="form-group">
 
         <input type="hidden" name="item" value="@ViewBag.empresa">
         <input type="hidden" name="cliente" value="@ViewBag.cliente">
-        <div class="col-md-8">
-
-            <div class="panel-heading" role="tab" id="headingOne">
-                @foreach (Projeto1.Models.ModOfereceProduto item in Model)
-                {
-                    <input type="hidden" name="item" value="@item.produto.codigoProduto">
+        <div class="col-md-11">
 
 
-                    <a id=@item.produto.codigoProduto class="list-group-item collapsed">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <label>Nome: </label>@item.produto.nomeProduto <br />
-                            </div>
-
-                            <div class="col-md-3">
-                                <label>Tipo: </label>@item.produto.tipoProduto.descricao <br />
-                            </div>
-
-                            <div class="col-md-2">
-                                <label>Valor: </label>@item.valor <br />
-                            </div>
-                            <input type="hidden" name="valor" value="@item.valor">
-
-                        </div>
-
-                    </a>
-
-
-
+            <style>
+                table {
+                    border-collapse: collapse;
+                    align-content: center;
                 }
-            </div>
-            <br />
-        </div>
-        @Html.Action("LocalEntrega", "Pedido", new { cliente = ViewBag.Cliente })
 
+                th, td {
+                    text-align: left;
+                    padding: 8px;
+                }
+
+                th {
+                    background-color: #605d5d;
+                    color: white;
+                }
+            </style>
+            <div id="xxx">
+                <table id="t01" class="table">
+                    <tr>
+                        <th>Produto</th>
+                        <th>Tipo de produto</th>
+                        <th>Valor</th>
+
+                    </tr>
+                    @foreach (Projeto1.Models.ModOfereceProduto item in Model)
+                    {
+                        <input type="hidden" name="item" value="@item.produto.codigoProduto">
+                        <tr>
+                            <div class="col-md-12">
+                                <div class="row">
+
+                                    <td>
+
+                                        <div class="col-md-6">
+
+                                            <label>@item.produto.nomeProduto </label> <br />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-md-6">
+
+                                            <label>@item.produto.tipoProduto.descricao</label> <br />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-md-6">
+
+                                            <label>@item.valor</label> <br />
+                                            <input type="hidden" name="valor" value="@item.valor">
+                                        </div>
+                                    </td>
+                                </div>
+                            </div>
+
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        <style>
+            .payment-methods {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+           
+
+                .payment-methods:after {
+                    content: "";
+                    clear: both;
+                }
+
+            .payment-method {
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+                float: left;
+                height: 80px;
+                position: relative;
+                width: 120px;
+            }
+
+                .payment-method + .payment-method {
+                    margin-left: 25px;
+                }
+
+                .payment-method label {
+                    background: #fff no-repeat center center;
+                    bottom: 1px;
+                    cursor: pointer;
+                    display: block;
+                    font-size: 0;
+                    left: 1px;
+                    position: absolute;
+                    right: 1px;
+                    text-indent: 100%;
+                    top: 1px;
+                }
+
+            .payment-methods input:focus + label {
+                outline: 2px dotted #21b4d0;
+            }
+
+            .payment-methods input:checked + label {
+                outline: 4px solid #21b4d0;
+            }
+
+            .pagseguro label {
+                background: url("https://www.dropbox.com/pri/get/Photos/pag.gif?raw=1&_subject_uid=85817718&w=AAB9FwCuSLNnH6_ZIuYoDflg-LoiEElPxpwPsVvq7ChXDA&size=1280x960&size_mode=3") no-repeat;
+            }
+
+            .paypal label {
+                background: url("https://photos-2.dropbox.com/t/2/AAArdW4URx9J5leEC1JXYEmwUb8XbV2ovUnBkJubdLoJSQ/12/85817718/jpeg/32x32/1/_/1/2/visa.jpg/ENCO5kIYpQIgBygH/lhdLrzgqqDklS781pwhPVzp_SoZKiw37Ji3dhAjV6X8?size=1024x768&size_mode=3") no-repeat;
+            }
+
+            .bankslip label {
+                background: url("https://photos-1.dropbox.com/t/2/AAAXnrRnkMxf6wiEmzdyZi3aqyth_sWjf8U-HIJwov6dKg/12/85817718/jpeg/32x32/1/_/1/2/dinheiro.jpg/ENCO5kIYqQIgBygH/x_OqMRfDFwV06sPsi8_6Lr2mrzuYGFwMuLHGyJg3VSQ?size=1280x960&size_mode=3") no-repeat;
+            }
+
+            #pagamento {
+                background-color: #ff0000;
+                width: 450px;
+                height: 100px;
+            }
+            #painelTit{
+                font-size: 20px;
+                font-family:'Comic Sans MS';
+                text-align:center;
+                align-content:center;
+                color:black
+            }
+           .panel-title{
+               color:#000000;
+           }
+            
+            
+        </style> @*estilo pagamento*@
+
+        <div class="row">
+
+            <div class="col-md-5">
+                <div class="row">
+                    <br />
+                    <br />
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <div class="panel-heading">
+                                <div class="panel-title"><strong id="painelTit">FORMAS DE PAGAMENTO</strong></div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <a class="list-group-item">
+
+                                <ul class="payment-methods">
+                                    <div class="col-md-4">
+                                        <li class="payment-method paypal">
+                                            <input name="payment_methods" type="radio" id="paypal" value="Visa/MasterCard" />
+                                            <label for="paypal" class="img-thumbnail img-check">Visa/Master</label>
+                                        </li>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <li class="payment-method pagseguro">
+                                            <input name="payment_methods" type="radio" id="pagseguro" value="PagSeguro">
+                                            <label for="pagseguro" class="img-thumbnail img-check">PagSeguro</label>
+                                        </li>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <li class="payment-method bankslip">
+                                            <input name="payment_methods" type="radio" id="bankslip" value="Dinheiro">
+                                            <label for="bankslip"  class="img-thumbnail img-check">Dinheiro</label>
+                                        </li>
+                                    </div>
+                                </ul>
+                                <br /><br /><br /><br />
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> @*forma de pagamento*@
+
+
+            @*<div class="panel-heading" role="tab" id="headingOne">
+                    @foreach (Projeto1.Models.ModOfereceProduto item in Model)
+                    {
+                        <input type="hidden" name="item" value="@item.produto.codigoProduto">
+
+
+                        <a id=@item.produto.codigoProduto class="list-group-item collapsed">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label>Nome: </label>@item.produto.nomeProduto <br />
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>Tipo: </label>@item.produto.tipoProduto.descricao <br />
+                                </div>
+
+                                <div class="col-md-2">
+                                    <label>Valor: </label>@item.valor <br />
+                                </div>
+                                <input type="hidden" name="valor" value="@item.valor">
+
+                            </div>
+
+                        </a>
+
+
+
+                    }
+                </div>*@
+
+            <div class="col-md-2">
+
+                @Html.Action("LocalEntrega", "Pedido", new { cliente = ViewBag.Cliente })
+            </div> @*local de entrega*@
+
+
+
+        </div>
+        <style>
+            #bb {
+                background-color: #000000;
+                border-left: 20px solid #701919;
+                color: #ffffff;
+                width: 1000px;
+            }
+
+            #apro {
+                font-size: 30px;
+                font-family: 'Comic Sans MS';
+            }
+        </style>
+        <div class="info" id="confirm">
+            <p id="titulo"><strong> APROVEITE TAMBÉM</strong></p>
+        </div>
         <div class="col-md-8">
-            <h2>Aproveite também </h2>
+
             <div class="row">
                 <div class="col-md-4">
                     @Html.Action("SugestaoSobre", "Pedido", new { mistura = ViewBag.mistura })
@@ -59,9 +293,31 @@
             <br />
         </div>
 
-        <button class="btn btn-warning">Finalizar pedido</button>
+       
 
+
+
+
+
+        <br />
+        <br /><br /> <br />
+        <br />
+        <br />
+<br />
+<br /><br />
+<br />
+<br /><br />
+<br />
+<br /><br />
+<br />
+<br /><br />
+<br />
+<br />
+        <br />
+        
+        <div id="botaoF">
+            <button class="btn btn-primary" id="botaoF" style="width:300px; height:40px">Finalizar pedido</button>
+        </div>
     </div>
-
 
 </form>

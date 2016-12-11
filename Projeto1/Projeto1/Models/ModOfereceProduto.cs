@@ -11,6 +11,8 @@ namespace Projeto1.Models
 
         public double? valor { get; set; }
 
+        public double? valorTotal { get; set; }
+
         public ModEmpresa empresa { get; set; }
 
         public ModProduto produto { get; set; }

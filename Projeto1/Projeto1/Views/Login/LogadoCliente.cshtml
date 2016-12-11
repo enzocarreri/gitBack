@@ -4,48 +4,76 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>LogadoCli</h2>
+
+
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<h2>Logado</h2>
 
 @foreach (Projeto1.Models.ModItensPedidos item in Model)
 {
-    <div class="col-md-12">
-        <div class="panel-heading" role="tab" id="headingOne">
 
-
-            <a id=@item.pedido.codigoPedido class="list-group-item collapsed">
+    <style>
+        #accordionClick {
+            background-color: #d7e0ef;
+            color: #000000;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function myFunction(id) {
+            var x = document.getElementById(id);
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+           
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#_@item.pedido.codigoPedido">
+                        <div class="row">
+                            <strong>
+                                <div class="col-md-3">
+                                    Empresa: @item.pedido.empresa.nomeApresentacao
+                                </div>
+                                <div class="col-md-2">
+                                    @item.pedido.cliente.nomeCliente
+                                </div>
+                                <div class="col-md-2">
+                                    @item.pedido.dataVenda
+                                </div>
+                                <div class="col-md-2">
+                                    @item.pedido.enderecoEntrega
+                                </div>
+                                <div class="col-md-3">
+                                    Numero:@item.pedido.numeroEntrega
+                                </div>
+                            </strong>
+                        </div>
+                    </a>
+                </h4>
+            </div>
+            <div id="_@item.pedido.codigoPedido" class="panel-collapse collapse ">
                 <div class="row">
-                    <div class="col-md-3">
-                        <label>Pedido: </label>@item.pedido.codigoPedido <br />
+
+                    <div class="panel-body">
+                        @Html.Action("ListarPedidoEmpresa", "Login", new { codigoPedido = @item.pedido.codigoPedido })
                     </div>
 
-                    <div class="col-md-6">
-                        <label>Data venda: </label>@item.pedido.dataVenda <br />
-                    </div>
-
-                    <div class="col-md-3">
-                        <label>Status: </label>@item.pedido.status <br />
-                    </div>
 
 
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <label>Produto: </label>@item.produto.nomeProduto <br />
-                    </div>
-
-                    <div class="col-md-4">
-                        <label>Empresa: </label>@item.pedido.empresa.nomeApresentacao <br />
-                    </div>
-
-
-
-
-                </div>
-            </a>
-
+            </div>
         </div>
 
     </div>
 
-}
 
+
+
+
+}

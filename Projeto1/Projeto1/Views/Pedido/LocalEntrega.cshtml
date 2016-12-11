@@ -3,39 +3,41 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>LocalEntrega</h2>
-<style>
-    
 
-</style>
+
 @foreach (Projeto1.Models.ModCliente item in Model)
 {
-    <div class="col-md-3">
-        
+    <div class="col-md-4">
+        <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
-
-                <a  class="list-group-item">
-                   
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>Endereco: </label>
-                                <input type="text" class="form-control" value="@item.endereco" name="endereco"><br />
-                            </div>
-
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>Numero: </label>
-                                <input type="text" class="form-control" value="@item.numero" name="numero"><br />
-                            </div>
-                        </div>
-                   
-                </a>
+                <div class="panel-heading">
+                    <div class="panel-title"><strong id="painelTit">LOCAL DE ENTREGA</strong></div>
+                </div>
+            </div>
             
 
-        </div>
+                <a class="list-group-item">
 
-    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Endereco: </label>
+                            <input type="text" class="form-control" value="@item.endereco" name="endereco"><br />
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Numero: </label>
+                            <input type="text" class="form-control" value="@item.numero" name="numero"><br />
+                        </div>
+                    </div>
+
+                </a>
+
+
+            </div>
+
+        </div>
 
 }
