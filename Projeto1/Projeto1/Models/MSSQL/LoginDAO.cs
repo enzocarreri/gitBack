@@ -325,5 +325,113 @@ namespace Projeto1.Models.MSSQL
 
             return o;
         }
+
+        internal List<ModItensPedidos> ListarDetalhesPedidosEmpresa(string codigoPedido)
+        {
+            // Instancia nossos objetos
+            List<ModItensPedidos> empresa = new List<ModItensPedidos>();
+
+            // Instancia nossa Conexao
+            Conexao conexao = new Conexao(TipoConexao.Conexao.WebConfig);
+
+            // Se existe erro na conexao move o erro para a classe de acesso 
+            if (conexao.ExisteErro())
+            {
+                setMensagemErro(conexao.mErro);
+                return empresa;
+            }
+
+            try
+            {
+                MySqlDataReader reader;
+                String query = "";
+
+
+
+
+                query = "select distinct c.codigocliente,c.nomecliente, pe.codigopedido, pe.datavenda,pe.enderecoentrega,pe.numeroentrega " +
+                             " from cliente c " +
+                             " INNER JOIN pedido pe ON pe.codclientepedido=c.codigocliente " +
+                             
+                             " INNER JOIN  itenspedido i ON pe.codigopedido = i.coditenspedido " +
+                             
+                             
+                             " where codigoPedido='" + codigoPedido + "' ";
+                             
+
+                
+
+
+
+
+                MySqlCommand cmd = new MySqlCommand(query, conexao.conn);
+
+                // define que o comando é um texto
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                // Abre nossa Conexao
+                if (conexao.OpenConexao() == false)
+                {
+
+                    setMensagemErro(conexao.mErro);
+                    return empresa;
+                }
+
+                reader = cmd.ExecuteReader();
+
+                // recebe os dados de nossa consulta
+                while (reader.Read())
+                {
+
+                    empresa.Add(read_ItensPedido3(reader));
+                }
+            }
+            catch (SqlException e)
+            {
+                // Trata os erros de nossa conexão
+                setMensagemErro(e.Message.ToString());
+            }
+
+            // Fecha nossa Conexao
+            conexao.CloseConexao();
+
+            // Retorna nossa lista de dados
+            return empresa;
+        }
+
+        private ModItensPedidos read_ItensPedido3(MySqlDataReader reader)
+        {
+            ModItensPedidos itens = new ModItensPedidos();
+
+            
+            
+
+            itens.pedido = read_Pedido3(reader);
+
+            return itens;
+        }
+        private ModPedido read_Pedido3(MySqlDataReader reader)
+        {
+            ModPedido pedido = new ModPedido();
+            pedido.codigoPedido = ConvertReader.ConverteInt(reader["codigopedido"]);
+            pedido.dataVenda = ConvertReader.ConverteDateTime(reader["datavenda"]);
+            pedido.enderecoEntrega = (string)reader["enderecoentrega"] ?? "";
+            pedido.numeroEntrega = (string)reader["numeroEntrega"] ?? "";
+            
+
+            pedido.cliente = read_Cliente3(reader);
+            return pedido;
+        }
+        private ModCliente read_Cliente3(MySqlDataReader reader)
+        {
+            ModCliente cliente = new ModCliente();
+            cliente.codigoCliente = ConvertReader.ConverteInt(reader["codigocliente"]);
+            cliente.nomeCliente = (string)reader["nomecliente"] ?? "";
+
+
+
+
+            return cliente;
+        }
     }
 }

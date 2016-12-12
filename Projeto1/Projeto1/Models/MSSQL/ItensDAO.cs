@@ -41,8 +41,8 @@ namespace Projeto1.Models.MSSQL
                     "INNER JOIN tipoproduto ti ON " +
                     "p.codTipoProduto = ti.codigotipo " +
                     "WHERE o.oferece = 2 and " +
-                    " o.dia = 3 and " +
-                    //" o.dia = DATE_FORMAT(now(), '%w') and " +
+             
+                    " o.dia = DATE_FORMAT(now(), '%w') and " +
                     "e.codigoempresa = '" + codigoEmpresa + "' and " +
                     "ti.codigoTipo = 5 ";
 
@@ -113,8 +113,8 @@ namespace Projeto1.Models.MSSQL
                     "INNER JOIN tipoproduto ti ON " +
                     "p.codTipoProduto = ti.codigotipo " +
                     "WHERE o.oferece = 2 and " +
-                    " o.dia = 3 and " +
-                    //" o.dia = DATE_FORMAT(now(), '%w') and " +
+                    
+                    " o.dia = DATE_FORMAT(now(), '%w') and " +
                     "e.codigoempresa = '" + codigoEmpresa + "' and " +
                     "ti.codigoTipo = 6 ";
 
@@ -185,8 +185,8 @@ namespace Projeto1.Models.MSSQL
                     "INNER JOIN tipoproduto ti ON " +
                     "p.codTipoProduto = ti.codigotipo " +
                     "WHERE o.oferece = 2 and " +
-                     " o.dia = 3 and " +
-                    //" o.dia = DATE_FORMAT(now(), '%w') and " +
+                    
+                    " o.dia = DATE_FORMAT(now(), '%w') and " +
                     "e.codigoempresa = '" + codigoEmpresa + "' and " +
                     "ti.codigoTipo = 3 ";
 
@@ -256,8 +256,8 @@ namespace Projeto1.Models.MSSQL
                     "INNER JOIN tipoproduto ti ON " +
                     "p.codTipoProduto = ti.codigotipo " +
                     "WHERE o.oferece = 2 and " +
-                    " o.dia = 3 and " +
-                    //" o.dia = DATE_FORMAT(now(), '%w') and " +
+                    
+                    " o.dia = DATE_FORMAT(now(), '%w') and " +
                     "e.codigoempresa = '" + codigoEmpresa + "' and " +
                     "ti.codigoTipo = 2 ";
 
@@ -328,8 +328,8 @@ namespace Projeto1.Models.MSSQL
                     "INNER JOIN tipoproduto ti ON " +
                     "p.codTipoProduto = ti.codigotipo " +
                     "WHERE o.oferece = 2 and " +
-                    " o.dia = 3 and " +
-                    //" o.dia = DATE_FORMAT(now(), '%w') and " +
+                    
+                    " o.dia = DATE_FORMAT(now(), '%w') and " +
                     "e.codigoempresa = '" + codigoEmpresa + "' and " +
                     "ti.codigoTipo = 4 ";
 
@@ -397,8 +397,8 @@ namespace Projeto1.Models.MSSQL
                     "INNER JOIN tipoproduto ti ON " +
                     "p.codTipoProduto = ti.codigotipo " +
                     "WHERE o.oferece = 2 and " +
-                   " o.dia = 3 and " +
-                    //" o.dia = DATE_FORMAT(now(), '%w') and " +
+                   
+                    " o.dia = DATE_FORMAT(now(), '%w') and " +
                     "e.codigoempresa = '" + codigoEmpresa + "' and " +
                     "ti.codigoTipo = 1 ";
                 

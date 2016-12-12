@@ -5,8 +5,17 @@
 }
 @Styles.Render("~/Content/Site.css")
 
-<h2>CadastroFinalizado</h2>
-<h2>@ViewBag.aa</h2>
-<h2>@ViewBag.bb</h2>
+<style>
+    #confirm {
+        width: 200px;
+        height: 200px;
+        background: url("https://photos-5.dropbox.com/t/2/AADDPC2mMEU3HUtjCXPxlbBkJuTso0QXy4o3hGC0Q3swAw/12/85817718/jpeg/32x32/1/_/1/2/a.jpg/ENCO5kIYrgIgBygH/rBI4c7CTV_k2Z5-fB4mz-JpMrH0bBHtn8reXUganqX8?size=1280x960&size_mode=3") no-repeat;
+        background-size: 200px 200px;
+    }
+</style>
+<div style="text-align:center;">
+    <label id="confirm"></label>
+    <p><strong>Seu cadastro foi realizado com Sucesso <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> </strong></p>
+    <a href="@Url.Action("Index","Home")"><p><strong>Clique aqui para voltar ao menu principal!!!</strong></p></a>
 
-
+</div>

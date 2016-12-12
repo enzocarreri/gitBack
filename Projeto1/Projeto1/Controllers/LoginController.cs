@@ -47,7 +47,8 @@ namespace Projeto1.Controllers
 
         public ActionResult LogadoEmpresa(string loginP, string senhaP)
         {
-           
+            ViewBag.loginP = loginP;
+            ViewBag.senhaP = senhaP;
             LoginDAO dao = new LoginDAO();
             ViewBag.login = loginP;
             ViewBag.senha = senhaP;
@@ -65,12 +66,13 @@ namespace Projeto1.Controllers
             ViewBag.lala = codigoPedido;
             return PartialView(ped);
         }
-        public ActionResult DetalhesPedidoEmpresa(string codigoPedido)
+        public ActionResult DetalhesPedidoEmpresa(string codigoPedido, string loginP, string senhaP)
         {
-
+            ViewBag.loginP = loginP;
+            ViewBag.senhaP = senhaP;
             LoginDAO dao = new LoginDAO();
 
-            List<ModItensPedidos> pede = dao.ListarPedidoItemEmpresa(codigoPedido);
+            List<ModItensPedidos> pede = dao.ListarDetalhesPedidosEmpresa(codigoPedido);
             ViewBag.lala = codigoPedido;
             return PartialView(pede);
         }

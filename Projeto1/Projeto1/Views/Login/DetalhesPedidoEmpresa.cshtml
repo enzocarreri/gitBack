@@ -4,21 +4,69 @@
     
 }
 
-
-<form class="form-inline">
-
-    @foreach (Projeto1.Models.ModItensPedidos item in Model)
-    {
-        <strong>
-           
-            @item.pedido.dataVenda
-            @item.pedido.enderecoEntrega
-            @item.pedido.numeroEntrega
-            
-        </strong>
+<style>
+    table {
+        border-collapse: collapse;
     }
 
-</form>
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    th {
+        background-color: #0094ff;
+        color: white;
+    }
+</style>
+
+<table class="table">
+    
+    @foreach (Projeto1.Models.ModItensPedidos item in Model)
+    {
+
+        <div class="col-md-6">
+            <tr>
+                <td>
+                    <strong><label>Detalhes do Cliente:</label></strong>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>@item.pedido.cliente.nomeCliente</label>
+                    <br />
+                </td>
+</tr>
+            <tr>
+                <td>
+                    <label>@item.pedido.enderecoEntrega</label>
+                    <br />
+                </td>
+</tr>
+            <tr>
+                <td>
+                    <label>@item.pedido.numeroEntrega</label>
+                <td>
+                    <br />
+            </tr>
+            
+            <tr>
+                <td>
+                @Html.Action("CarregarStatus", "Status", new { codigoPedido = @item.pedido.codigoPedido, loginP = ViewBag.LoginP, senhaP = ViewBag.senhaP })
+                <td>
+                    <br />
+            </tr>
+                
+            
+</div>
+    }
+</table>
+
 
 
 

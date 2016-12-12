@@ -11,8 +11,10 @@ namespace Projeto1.Controllers
     public class StatusController : Controller
     {
         // GET: Status
-        public ActionResult CarregarStatus(String codigoPedido)
+        public ActionResult CarregarStatus(String codigoPedido,string loginP, string senhaP)
         {
+            ViewBag.loginP = loginP;
+            ViewBag.senhaP = senhaP;
             StatusDAO dao = new StatusDAO();
 
             List<ModPedido> ped = dao.ListarPedidoItemEmpresa(codigoPedido);
@@ -21,11 +23,13 @@ namespace Projeto1.Controllers
         }
         public ActionResult AlterarStatus(string codigoPedido, string status)
         {
-            
+            ViewBag.lala1 = status;
+            ViewBag.lala2 = codigoPedido;
             StatusDAO dao = new StatusDAO();
 
             string ped = dao.NovoStatus(status,codigoPedido);
-            ViewBag.lala = ped;
+            ViewBag.lala3 = ped;
+            
             return View();
         }
     }

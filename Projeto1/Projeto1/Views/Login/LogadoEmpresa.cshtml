@@ -105,23 +105,16 @@
                     <a data-toggle="collapse" data-parent="#accordion" href="#_@item.pedido.codigoPedido">
                         <div class="row">
                             <strong>
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     Pedido: @item.pedido.codigoPedido
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     @item.pedido.cliente.nomeCliente
                                 </div>
                                 <div class="col-md-3">
                                    @item.pedido.dataVenda
                                 </div>
-                                <div class="col-md-2">
-                                    @item.pedido.enderecoEntrega
-                                </div>
-                                <div class="col-md-3">
-                                    
-                                    @*@Html.Action("CarregarStatus", "Status", new { codigoPedido = @item.pedido.codigoPedido })*@
-                                    Numero:@item.pedido.numeroEntrega
-                                </div>
+                                
                             </strong>
                         </div>
                     </a>
@@ -129,12 +122,17 @@
             </div>
             <div id="_@item.pedido.codigoPedido" class="panel-collapse collapse ">
                 <div class="row">
-                   
+                    <div class="col-md-6">
                         <div class="panel-body">
                             @Html.Action("ListarPedidoEmpresa", "Login", new { codigoPedido = @item.pedido.codigoPedido })
                         </div>
-                   
-                   
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel-body">
+                            @Html.Action("DetalhesPedidoEmpresa", "Login", new { codigoPedido = @item.pedido.codigoPedido,loginP=ViewBag.LoginP,senhaP=ViewBag.senhaP  })
+                        </div>
+                       
+                    </div>
                     
                 </div>
             </div>
