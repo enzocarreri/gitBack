@@ -7,30 +7,49 @@
 
 <form class="form-inline" action="@Url.Action("AlterarStatus","Login")">
 
-        @foreach (Projeto1.Models.ModPedido item in Model)
-        {
-            
-            <div class="row">
-                <div class="form-group">
-                    <input type="hidden" name="codigoPedido" value="@item.codigoPedido">
-                    <select name="status" id="lala" class="form-control">
-                        <option value="@item.status">@item.status</option>
-
-                        <option value="Aguardando">Aguardando</option>
-                        <option value="Em analise">Em analise</option>
-                        <option value="Entregue">Entregue</option>
-                        <option value="Motoboy">Motoboy</option>
-                    </select>
-                   
-                    <button name="xuxu" class="btn btn-primary">Buscar</button>
+    @foreach (Projeto1.Models.ModPedido item in Model)
+    {
+        
 
 
-                </div>
-                </div>
 
-               
+                @*<div class="btn-group">
+
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret">ff</span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="@Url.Action("AlterarStatus","Login", new { codigoPedido = ViewBag.codigoPedido, status=@item.status })">@item.status</a></li>
+                    <li><a href="@Url.Action("AlterarStatus","Login", new { codigoPedido = ViewBag.codigoPedido, status= "Em analise" })">Em analise</a></li>
+                    <li><a href="@Url.Action("AlterarStatus","Login", new { codigoPedido = ViewBag.codigoPedido, status= "Entregue" })">Entregue</a></li>
+                    <li><a href="@Url.Action("AlterarStatus","Login", new { codigoPedido = ViewBag.codigoPedido, status= "Motoboy" })">Motoboy</a></li>
+                    <li><a href="@Url.Action("AlterarStatus","Login", new { codigoPedido = ViewBag.codigoPedido, status= "Preparando" })">Preparando</a></li>
+
+                </ul>
+            </div>*@
+
+                @*<div class="row">
+            <div class="form-group">
+                <input type="hidden" name="codigoPedido" value="@item.codigoPedido">
+                <select name="status" id="lala" class="form-control">
+                    <option value="@item.status">@item.status</option>
+
+                    <option onclick="location.href='@Url.Action("AlterarStatus","Login")'" value="Aguardando">Aguardando</option>
+                    <option value="Em analise">Em analise</option>
+                    <option value="Entregue">Entregue</option>
+                    <option value="Motoboy">Motoboy</option>
+                </select>
+
+
+
+
+            </div>
+            </div>*@
+
+
 
 
                 }
-   
+
 </form>

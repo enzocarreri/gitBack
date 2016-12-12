@@ -16,13 +16,12 @@ namespace Projeto1.Controllers
             StatusDAO dao = new StatusDAO();
 
             List<ModPedido> ped = dao.ListarPedidoItemEmpresa(codigoPedido);
-            
+            ViewBag.codigoPedido = codigoPedido;
             return PartialView(ped);
         }
-        public ActionResult AlterarStatus()
+        public ActionResult AlterarStatus(string codigoPedido, string status)
         {
-            string status = Request.QueryString["status"];
-            string codigoPedido = Request.QueryString["codigoPedido"];
+            
             StatusDAO dao = new StatusDAO();
 
             string ped = dao.NovoStatus(status,codigoPedido);

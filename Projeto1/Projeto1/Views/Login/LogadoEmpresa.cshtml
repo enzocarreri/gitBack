@@ -118,6 +118,8 @@
                                     @item.pedido.enderecoEntrega
                                 </div>
                                 <div class="col-md-3">
+                                    
+                                    @*@Html.Action("CarregarStatus", "Status", new { codigoPedido = @item.pedido.codigoPedido })*@
                                     Numero:@item.pedido.numeroEntrega
                                 </div>
                             </strong>
