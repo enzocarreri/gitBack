@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "FalhaLogar2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "LoginCliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+
+<style>
+    fieldset {
+        border: 1px solid #ddd;
+        padding: 0 1.4em 1.4em 1.4em;
+        margin: 0 0 1.5em 0;
+    }
+
+    #cadastrar {
+        width: 375px;
+    }
+
+    #endereco {
+        width: 230px;
+    }
+
+    #num {
+        width: 130px;
+    }
+
+    #outros {
+        width: 365px;
+    }
+
+    #divCenter {
+        background-color: #DCDCDC;
+        width: 400px;
+        height: 245px;
+        left: 45%;
+        margin: -130px 0 0 -210px;
+        padding: 10px;
+        position: absolute;
+        top: 33%;
+        border: 2px solid black;
+        border-radius: 12px;
+    }
+</style>
+<form class="form-inline" action="@Url.Action("AdmLogin", "Login")">
+    <div id="divCenter">
+        <input type="hidden" name="item" value="@ViewBag.Nome">
+
+
+
+        <div class="control-group">
+            <label class="control-label" for="inputEmail">E-mail</label>
+            <div class="controls">
+                <input type="text" id="outros" class="form-control" placeholder="E-mail@e-mail.com" name="email">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputPassword">Senha</label>
+            <div class="controls">
+                <input type="password" id="outros" class="form-control" placeholder="senha123456" name="senha">
+
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6 ">
+                <div class="checkbox">
+                    <label>
+
+                        <input type="checkbox" name="item">
+                        <strong>Empresa</strong>
+
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="control-group">
+            <div class="controls">
+                <br />
+
+
+                <button class="btn btn-primary" id="cadastrar" type="submit">Acessar</button>
+            </div>
+        </div>
+        <a href="@Url.Action("Cadastro","Cadastro")"><p><strong>Clique aqui para cadastrar-se!!!</strong></p></a>
+    </div>
+</form>

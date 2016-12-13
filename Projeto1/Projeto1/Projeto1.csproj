@@ -328,6 +328,8 @@
     <Content Include="Views\Status\AlterarStatus.cshtml" />
     <Content Include="Views\Pedido\ValorTotal.cshtml" />
     <Content Include="Views\Login\DetalhesPedidoEmpresa.cshtml" />
+    <Content Include="Views\Login\FalhaLogar1.cshtml" />
+    <Content Include="Views\Login\FalhaLogar2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

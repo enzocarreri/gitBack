@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "FalhaLogar1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "LoginCliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<style>
+    #confirm {
+        width: 200px;
+        height: 200px;
+        background: url("https://photos-3.dropbox.com/t/2/AACRdspp4BsGWr5ii-SC5rPFTHPJVG-LVRJsAkEUYz_hTg/12/85817718/png/32x32/1/_/1/2/1_x_letra_em_vermelho.png/ENCO5kIYsAIgBygH/jacRr075Q8l88C1L_lFHg2pynerKYujLvI7apP2n_Hc?size=1280x960&size_mode=3") no-repeat;
+        background-size: 200px 200px;
+    }
+</style>
+<div style="text-align:center;">
+    <label id="confirm"></label>
+    <p><strong>Operação invalida <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> </strong></p>
+    <a href="@Url.Action("Index","Home")"><p><strong>Clique aqui para voltar ao menu principal!!!</strong></p></a>
+
+</div>

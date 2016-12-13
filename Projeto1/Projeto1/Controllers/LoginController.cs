@@ -42,18 +42,43 @@ namespace Projeto1.Controllers
             ViewBag.login = loginP;
             ViewBag.senha = senhaP;
             List<ModItensPedidos> ped = dao.ListarPedidosCliente(loginP, senhaP);
+            if (ped.Count == 0)
+            {
+                return RedirectToAction("FalhaLogar1", "Login", new { loginP = loginP, senhaP = senhaP });
+            }
             return View(ped);
         }
 
         public ActionResult LogadoEmpresa(string loginP, string senhaP)
         {
-            ViewBag.loginP = loginP;
-            ViewBag.senhaP = senhaP;
+            
             LoginDAO dao = new LoginDAO();
             ViewBag.login = loginP;
             ViewBag.senha = senhaP;
             List<ModItensPedidos> ped = dao.ListarPedidosEmpresa(loginP,senhaP);
-           return View(ped);
+           
+            
+            if (ped.Count == 0)
+            {
+                return RedirectToAction("FalhaLogar1", "Login", new { loginP = loginP, senhaP = senhaP });
+            }
+            return View(ped);
+
+
+        }
+        public ActionResult FalhaLogar1(string loginP, string senhaP)
+        {
+
+            
+            return View();
+
+
+        }
+        public ActionResult FalhaLogar2(string loginP, string senhaP)
+        {
+
+            
+            return View();
 
 
         }
@@ -66,10 +91,9 @@ namespace Projeto1.Controllers
             ViewBag.lala = codigoPedido;
             return PartialView(ped);
         }
-        public ActionResult DetalhesPedidoEmpresa(string codigoPedido, string loginP, string senhaP)
+        public ActionResult DetalhesPedidoEmpresa(string codigoPedido)
         {
-            ViewBag.loginP = loginP;
-            ViewBag.senhaP = senhaP;
+            
             LoginDAO dao = new LoginDAO();
 
             List<ModItensPedidos> pede = dao.ListarDetalhesPedidosEmpresa(codigoPedido);

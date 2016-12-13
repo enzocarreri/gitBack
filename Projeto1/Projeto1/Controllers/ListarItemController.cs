@@ -28,7 +28,10 @@ namespace Projeto1.Controllers
 
             List<ModCliente> cliente = dao.LoginCliente(email,senha);
             ViewBag.CodigoCliente = cliente;
-
+            if (cliente.Count == 0)
+            {
+                return RedirectToAction("FalhaLogar1", "Login");
+            }
             return View(cliente);
 
         }
